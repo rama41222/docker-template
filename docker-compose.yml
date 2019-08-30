@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  api:
+    image: ${IMAGE}:${IMAGE_VERSION}
+    build: 
+      context: .
+      args:
+        APP_PATH: ${APP_PATH}
+    env_file: .env
+    volumes:
+        - '${HOST_VOL}:${CONTAINER_VOL}'
+    networks: 
+      - backend
+    ports: 
+      - '${HOST_PORT}:${CONTAINER_PORT}'
+    user: '${API_USER}'
+
+  web-cli:
+    image: ${IMAGE}:${IMAGE_VERSION}
+    networks: 
+      - backend
+    command: sh
+    user: '${API_USER}'
+
+networks:
+  backend:
+    driver: bridge
