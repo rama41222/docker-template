@@ -29,3 +29,4 @@ Change the docker CMD to following
 docker build . -t [repo-name]/[image-name]:[version]
 docker run -it -p [host-port]:[container-port] [image-name] [cmd]
 ```
+[Medium Article](https://itnext.io/lets-dockerize-a-nodejs-express-api-22700b4105e4)  
